@@ -8,16 +8,18 @@ import org.springframework.web.bind.annotation.ResponseBody
 class GreetingController {
 
     Greeter greeter
+    ConferenceNameSelector conferenceNameSelector
 
-    GreetingController(Greeter greeter) {
+    GreetingController(Greeter greeter, ConferenceNameSelector conferenceNameSelector) {
         this.greeter = greeter
+        this.conferenceNameSelector = conferenceNameSelector
     }
 
 
     @RequestMapping("/greeting")
     @ResponseBody
     String greeting() {
-        greeter.greet()
+        "${greeter.greet()} ${conferenceNameSelector.selectConference()}!"
     }
 
 }
