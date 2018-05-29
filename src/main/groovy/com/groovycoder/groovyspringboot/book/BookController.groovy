@@ -1,6 +1,7 @@
 package com.groovycoder.groovyspringboot.book
 
 import groovy.json.JsonOutput
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
@@ -20,9 +21,9 @@ class BookController {
         JsonOutput.toJson(bookRepository.findAll())
     }
 
-    @RequestMapping(value = "/books/name", produces = ["application/json"])
+    @RequestMapping(value = "/books/{name}", produces = ["application/json"])
     @ResponseBody
-    String findBookByName() {
-        JsonOutput.toJson(bookRepository.findAll())
+    String findBookByName(@PathVariable String name) {
+        JsonOutput.toJson(bookRepository.findByName(name))
     }
 }
