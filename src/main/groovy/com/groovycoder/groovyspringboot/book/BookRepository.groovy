@@ -5,6 +5,6 @@ import org.springframework.data.repository.query.Param
 
 interface BookRepository extends CrudRepository<Book, Long> {
 
-    List findByName(String name)
+    List findByName(@Param("name") String name)
 
 }
