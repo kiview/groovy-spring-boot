@@ -7,7 +7,6 @@ import org.testcontainers.spock.Testcontainers
 import spock.lang.Shared
 import spock.lang.Specification
 
-//@ContextConfiguration(initializers = Initializer)
 @SpringBootTest
 @Testcontainers
 class BookRepositorySpec extends Specification {
