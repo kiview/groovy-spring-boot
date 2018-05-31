@@ -1,1 +1,2 @@
 rootProject.name = 'groovyspringboot'
+enableFeaturePreview("IMPROVED_POM_SUPPORT")
